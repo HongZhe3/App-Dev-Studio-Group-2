@@ -1,0 +1,30 @@
+{
+  "name": "group-2-folder",
+  "version": "1.0.0",
+  "description": "ADES PROJECT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/front-end/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HongZhe3/App-Dev-Studio-project-storage.git"
+  },
+  "author": "Hong Zhe, Quek Wei Lin, Meng Xiang Hao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HongZhe3/App-Dev-Studio-project-storage/issues"
+  },
+  "homepage": "https://github.com/HongZhe3/App-Dev-Studio-project-storage#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "heroku": "^7.59.1",
+    "mysql": "^2.18.1",
+    "node": "^17.0.1"
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  }
+}
