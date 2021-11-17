@@ -5,7 +5,7 @@ var dbconnect={
             host:'localhost',
             user:'root',
             password:'17112020st0503',
-            database:'assignment_2122'
+            database:'ads-gp-2'
         });
         return conn;
     }
