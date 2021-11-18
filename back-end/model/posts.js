@@ -13,7 +13,7 @@ var postDB={
                 console.log(err,'\n\n2a\n\n');
                 return callback(err,null);
             }else{
-                console.log('\n\nConnected!   addPost\n\n');
+                console.log('\n\nConnected!   addPost\n\n',title,cont,uID,cID,image,'\n');
                 var sql='INSERT INTO posts(postsTitle,postsContent,fk_userID,fk_channelID,imageLink)VALUES(?,?,?,?,?)';
                 conn.query(sql,[title,cont,uID,cID,image],function(err,result){
                     conn.end();
@@ -22,7 +22,7 @@ var postDB={
                         return callback(err,null);
                     }else{
                         console.log(result.inser,'\n\n2b\n\n');
-                        return callback(result,null);
+                        return callback(null,result);
                     }
                 });
             }
