@@ -40,7 +40,7 @@ var postDB={
                 return callback(err,null);
             }else{
                 console.log('\n\nConnected!   getPost\n\n');
-                var sql='';
+                var sql='SELECT*FROM posts';
                 conn.query(sql,[],(err,result)=>{
                     conn.end();
                     if(err){
@@ -48,7 +48,7 @@ var postDB={
                         return callback(err,null);
                     }else{
                         console.log(result,'\n\n2b\n\n');
-                        return callback(result,null);
+                        return callback(null,result);
                     }
                 });
             }
