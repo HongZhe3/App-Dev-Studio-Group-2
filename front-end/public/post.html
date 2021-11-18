@@ -36,7 +36,7 @@
                     success:(resBdy,txtStat,xhr)=>{
                         console.log('data: '+data,'response: ',resBdy);
                     },error:(xhr,txtStat,error)=>{
-                        console.log('error in operation','xhr',xhr,'txtStat',txtStat,'error',error);
+                        console.log('error in operation','data\n',data,'xhr',xhr,'txtStat',txtStat,'error',error);
                     }
                 });return false;
             });
