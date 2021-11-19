@@ -12,11 +12,11 @@ app.use(function (req, res, next) {
 
 app.get('/post',(req,res)=>{
     console.log('accessed post');
-    res.sendFile('/public/post.html',{root:__dirname});
+    res.sendFile('./front-end/public/post.html',{root:__dirname});
 });
 app.get('*',(req,res)=>{
     console.log('accessed post');
-    res.sendFile('/public/home.html',{root:__dirname});
+    res.sendFile('./front-end/public/home.html',{root:__dirname});
 });
 // var app=require('./public/app');
 const portA=3000;

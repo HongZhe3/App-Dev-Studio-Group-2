@@ -30,15 +30,16 @@
         </div>
     </div>
     <script>
-        S.ajax({
-            url:'',
+        $.ajax({
+            url:'http://localhost:3001/getPosts',
             type:'GET',
             success:(resBdy,txtStat,xhr)=>{
                 console.log('--------response data (post)----------');
-                console.log(resBdy, resBdy.length);
-                for (var i = 0; i < resBdy.length; i++){
-                    if(resBdy[i].image)//if there is an image link
-                    const postHTML=`
+                console.log(/* resBdy, */ resBdy.length);
+                for (var i= 0; i < resBdy.length; i++) {
+                    if(resBdy[i].image){//if there is an image link
+                        console.log('yes img');
+                        var postHTML=`
                 <header>${resBdy[i].postsTitle}</header>
                 <img src="${resBdy[i].imageLink}" width='800'height='400'>
                 <body class='d-block row'>${resBdy[i].postsContent}</body><br>
@@ -47,8 +48,23 @@
                     <div class='col-1'>Comment</div>
                     <div class='col-2'>add image</div>
                 </div>`;
+                    }else{
+                        console.log('no img');
+                        var postHTML=`
+                <header>${resBdy[i].postsTitle}</header>
+                <body class='d-block row'>${resBdy[i].postsContent}</body><br>
+                <div class='row'>
+                    <div class='col-1'></div>
+                    <div class='col-1'>Comment</div>
+                    <div class='col-2'>add image</div>
+                </div>`;
+                    }
+                    $('#postList').append(postHTML);
                 }
             },
+            error(xhr,txtStat,error){
+                console.log('error in op',error);
+            }
         });
     </script>
 </body>
