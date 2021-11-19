@@ -23,6 +23,7 @@
                 console.log($('#body').val());
             });
             $('#addPost').click(()=>{
+                //headers:{'authorization':localStorage.getItem('token')}
                 var title=$('#title').val();
                 var body=$('#body').val();
                 var uID=$('#uID').val();
