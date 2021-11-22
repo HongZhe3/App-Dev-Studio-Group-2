@@ -1,0 +1,50 @@
+[
+    {
+        "idposts": 1,
+        "postsTitle": "trial 1",
+        "postsContent": "test if endpoint can handle this post",
+        "fk_userID": 1,
+        "fk_channelID": 1,
+        "imageLink": null
+    },
+    {
+        "idposts": 2,
+        "postsTitle": "trial 2",
+        "postsContent": "test to identify source of error",
+        "fk_userID": 1,
+        "fk_channelID": 1,
+        "imageLink": null
+    },
+    {
+        "idposts": 3,
+        "postsTitle": "trial 2",
+        "postsContent": "test to identify source of error",
+        "fk_userID": 1,
+        "fk_channelID": 1,
+        "imageLink": null
+    },
+    {
+        "idposts": 4,
+        "postsTitle": "trial 2",
+        "postsContent": "test to identify source of error",
+        "fk_userID": 1,
+        "fk_channelID": 1,
+        "imageLink": null
+    },
+    {
+        "idposts": 5,
+        "postsTitle": "trial 2",
+        "postsContent": "test to identify source of error",
+        "fk_userID": 1,
+        "fk_channelID": 1,
+        "imageLink": null
+    },
+    {
+        "idposts": 6,
+        "postsTitle": "trial 2",
+        "postsContent": "test to identify source of error",
+        "fk_userID": 1,
+        "fk_channelID": 1,
+        "imageLink": null
+    }
+]
