@@ -3,7 +3,7 @@ import PostItem from './PostItem'
 import './Posts.css'
 
 export default function Posts() {
-    const posts = [
+    const posts = [ //sql qurey must search for comment count, upvote tally, username & channel name 
       {
         // upvote: 547,
         // image: "https://cdn3.dpmag.com/2021/07/Landscape-Tips-Mike-Mezeul-II.jpg",
