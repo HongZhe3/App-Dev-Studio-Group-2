@@ -2,7 +2,7 @@ import React from 'react'
 import './PostItem.css'
 
 export default function PostItem(props) {
-    const { title, upvote, image, user, subreddit, comment_count} = props.post
+    const { title, upvote, image, user, subreddit, comment_count} = props.post // we need upvote count and comment count too
     return (
         <div className="post">
             <div className="post__left">
