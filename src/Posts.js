@@ -22,16 +22,17 @@ export default function Posts() {
     type: 'GET',
     success: (resBdy, txtStat, xhr)=>{
       const posts=resBdy;
+      console.log(resBdy,posts);
+      return (
+          <div className="posts">
+              {posts.map(post => (
+                  <PostItem post={post} />
+              ))}
+          </div>
+      )
     },
     error(xhr,txtStat,error){
         console.log('error in op',error);
     }
   });
-    return (
-        <div className="posts">
-            {posts.map(post => (
-                <PostItem post={post} />
-            ))}
-        </div>
-    )
 }
