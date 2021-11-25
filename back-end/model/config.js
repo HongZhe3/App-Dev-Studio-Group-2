@@ -1,5 +1,5 @@
-dotenv = require('dotenv');
 
-module.exports = {
 
-};
+const dotenv = require('dotenv');
+
+dotenv.config(); //Build the process.env object
