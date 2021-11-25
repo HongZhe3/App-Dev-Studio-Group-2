@@ -1,4 +1,4 @@
-dotenv = require('.env');
+dotenv = require('dotenv');
 
 module.exports = {
 
