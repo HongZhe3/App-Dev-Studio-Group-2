@@ -22,7 +22,7 @@ export default function Posts() {
     type: 'GET',
     success: (resBdy, txtStat, xhr)=>{
       const posts=resBdy;
-      console.log(resBdy,posts);
+      console.log(resBdy);
       return (
           <div className="posts">
               {posts.map(post => (
