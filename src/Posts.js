@@ -13,26 +13,40 @@ export default function Posts() {
         // subreddit: "worldnews",
         // comment_count: 284,
     //   } ,
-      
+      fetch(`localhost:3001/getPosts`,{
+        method:'GET'
+      }).then((err,res)=>{
+        console.log(res.json());
+        posts=res.json();
+        if(err){
+          console.log('system err:',err)
+        }
+        if(res.ok){
+          return (
+            <div className="posts">
+              {posts.map(post => (
+                <PostItem post={post} />
+              ))}
+            </div>
+          )
+        }
+      });
     // ]
     // componentDidMount: function() {
     // }
-  $.ajax({
-    url: 'http://localhost:3001/getPosts',
-    type: 'GET',
-    success: (resBdy, txtStat, xhr)=>{
-      const posts=resBdy;
-      console.log(resBdy);
-      return (
-          <div className="posts">
-              {posts.map(post => (
-                  <PostItem post={post} />
-              ))}
-          </div>
-      )
-    },
-    error(xhr,txtStat,error){
-        console.log('error in op',error);
-    }
-  });
+  // $.ajax({
+  //   url: 'http://localhost:3001/getPosts',
+  //   type: 'GET',
+  //   success: (resBdy, txtStat, xhr)=>{
+  //     const posts=resBdy;
+  //     console.log(resBdy);
+  //   },
+  //   error(xhr,txtStat,error){
+  //       console.log('error in op',error);
+  //   }
+  // });
+  // componentDidMount(){
+  //   fetch('http://localhost:3001/getPosts)
+  //   .then(data=>data.json)
+  // }
 }
