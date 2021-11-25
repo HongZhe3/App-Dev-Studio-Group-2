@@ -24,6 +24,8 @@ const httpA=require('http');
 const serverA=app.listen(portA || process.env.PORT,function(){
     console.log('Web App Hosted at http://localhost:%s',portA);
 });
+const host = '0.0.0.0';
+
 
 //back end
 var appB=require('./back-end/control/app');
