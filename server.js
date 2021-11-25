@@ -21,7 +21,7 @@ app.get('*',(req,res)=>{
 // var app=require('./public/app');
 const portA= process.env.PORT || 3000;
 
-app.listen(portA, "0.0.0.0", function(){
+app.listen(portA, function(){
     console.log('Web App Hosted at http://localhost:%s',portA);
 });
 
@@ -30,6 +30,6 @@ app.listen(portA, "0.0.0.0", function(){
 var appB=require('./back-end/control/app');
 const portB =process.env.PORT || 3001;
 
-appB.listen(portB, "0.0.0.0", function(){
+appB.listen(portB, function(){
     console.log('Web App Hosted at http://localhost:%s',portB);
 });
