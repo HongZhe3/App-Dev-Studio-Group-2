@@ -19,17 +19,16 @@ app.get('*',(req,res)=>{
     res.sendFile('./front-end/public/home.html',{root:__dirname});
 });
 // var app=require('./public/app');
-const portA= process.env.PORT || 3000;
-
-app.listen(portA, function(){
+const portA=3000;
+const httpA=require('http');
+const serverA=app.listen(portA || process.env.PORT,function(){
     console.log('Web App Hosted at http://localhost:%s',portA);
 });
 
-
 //back end
 var appB=require('./back-end/control/app');
-const portB =process.env.PORT || 3001;
-
-appB.listen(portB, function(){
+const portB =3001;
+const httpB=require('http');
+const serverB=appB.listen(portB || process.env.PORT,function(){
     console.log('Web App Hosted at http://localhost:%s',portB);
 });
