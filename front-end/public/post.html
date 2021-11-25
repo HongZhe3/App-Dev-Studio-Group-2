@@ -41,6 +41,7 @@
                     }
                 });return false;
             });
+
         });
     </script>
   </head>
@@ -49,17 +50,17 @@
         <div class="container col-md-8 col-lg-9 bg-info p-10 pad gapt">
             <form>
                 <div class="flex">
-                    <label for='title'class='cen'>Title</label>
-                    <input type='text'id='title'name='title'>
+                    <label for='title' class='cen'>Title</label>
                 </div>
+                <input type='text' id='title' name='title'>
                 <div class="flex">
-                    <label for='body'class='cen'>content</label>
-                    <textarea id='body'name='body'rows="2" cols="10"></textarea>
+                    <label for='body' class='cen'>content</label>
+                    <textarea id='body' name='body' rows="2" cols="10"></textarea>
                 </div><br>
                 <label for="uID">user ID</label>
-                <input type='number'id='uID'name='uID'value='1'>
+                <input type='number'id='uID'name='uID'></input>
                 <label for="cID">channel ID</label>
-                <input type='number'id='cID'name=' cID'value='1'>
+                <input type='number'id='cID'name='cID'></input>
                 <button id='addPost'>post</button>
             </form>
         </div>
@@ -69,5 +70,36 @@
             </div>
         </div>
     </div>
+    <script>
+        console.log(window.location.search);
+        if(window.location.search){
+            console.log(true);
+            $.ajax({
+                url:'http://localhost:3001/getPost'+window.location.search
+                ,type:'GET'
+                ,success:function(resBdy,txtStat,xhr){
+                    $('#title').val(resBdy[0].postsTitle);
+                    $('#body').val(resBdy[0].postsContent);
+                    $('#uID').val(resBdy[0].fk_userID);
+                    $('#cID').val(resBdy[0].fk_channelID);
+                    console.log('--------response data (post)----------');
+                    console.log(resBdy,resBdy.length,resBdy[0]);
+                    // uID=resBdy.fk_userID;
+                    // cID=resBdy.fk_channelID;
+                    // cont=resBdy.postsContent;
+                    // title=resBdy.postsTitle;
+                }
+                ,error:function(xhr,txtStat,error){
+                    console.log(false);
+                    $('#cID').val(1)
+                    $('#uID').val(1)
+                }
+            });
+        }else{
+            console.log(false);
+            $('#cID').val(1);
+            $('#uID').val(1);
+        }
+    </script>
 </body>
 </html>
