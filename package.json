@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/HongZhe3/App-Dev-Studio-project-storage#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "heroku": "^7.59.1",
     "mysql": "^2.18.1",
