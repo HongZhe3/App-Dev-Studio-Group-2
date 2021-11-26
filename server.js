@@ -18,17 +18,18 @@ app.get('*',(req,res)=>{
     console.log('accessed post');
     res.sendFile('./front-end/public/home.html',{root:__dirname});
 });
+
 // var app=require('./public/app');
 const portA=3000;
 const httpA=require('http');
-const serverA=app.listen(portA,function(){
+const serverA=app.listen(portA || process.env.portA,function(){
     console.log('Web App Hosted at http://localhost:%s',portA);
 });
 
 //back end
-var appB=require('./back-end/control/app');
-const portB =3001;
-const httpB=require('http');
-const serverB=appB.listen(portB,function(){
-    console.log('backEnd App Hosted at localhost:%s',portB);
-});
+// var appB=require('./back-end/control/app');
+// const portB =3001;
+// const httpB=require('http');
+// const serverB=appB.listen(portB || process.env.portB,function(){
+//     console.log('Web App Hosted at http://localhost:%s',portB);
+// });
