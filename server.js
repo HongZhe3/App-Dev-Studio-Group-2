@@ -19,7 +19,7 @@ app.get('*',(req,res)=>{
     res.sendFile('./front-end/public/home.html',{root:__dirname});
 });
 // var app=require('./public/app');
-const portA=3000;
+const portA=3002;
 const httpA=require('http');
 const serverA=app.listen(portA,function(){
     console.log('Web App Hosted at http://localhost:%s',portA);
