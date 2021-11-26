@@ -33,7 +33,7 @@ app.get('/getPosts',(req,res)=>{//2
         if(err){
             res.status(500).send({'error':err});
         }else{
-            res.status(200).send({'result':result});
+            res.status(200).send(result);
         }
     });
 });//2
