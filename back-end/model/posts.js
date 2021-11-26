@@ -18,10 +18,10 @@ var postDB={
                 conn.query(sql,[title,cont,uID,cID,image],function(err,result){
                     conn.end();
                     if(err){
-                        console.log(err,'\n\n2b\n\n');
+                        console.log(err,'\n\n2bf\n\n');
                         return callback(err,null);
                     }else{
-                        console.log(result.inser,'\n\n2b\n\n');
+                        console.log(result.inser,'\n\n2bs\n\n');
                         return callback(null,result);
                     }
                 });
@@ -40,14 +40,17 @@ var postDB={
                 return callback(err,null);
             }else{
                 console.log('\n\nConnected!   getPost\n\n');
-                var sql='SELECT*FROM posts';
+                var sql=`SELECT p.*,u.username,ch.subreddit
+                FROM posts AS p,user AS u,channel AS ch
+                WHERE p.fk_userID=u.iduser
+                AND p.fk_channelID=ch.idchannel`;
                 conn.query(sql,[],(err,result)=>{
                     conn.end();
                     if(err){
-                        console.log(err,'\n\n2b\n\n');
+                        console.log(err,'\n\n2bf\n\n');
                         return callback(err,null);
                     }else{
-                        console.log(result,'\n\n2b\n\n');
+                        console.log(result,'\n\n2bs\n\n');
                         return callback(null,result);
                     }
                 });
@@ -156,10 +159,10 @@ var postDB={
                 conn.query(sql,[postID],(err,result)=>{
                     conn.end();
                     if(err){
-                        console.log(err,'\n\n2b\n\n');
+                        console.log(err,'\n\n2bf\n\n');
                         return callback(err,null);
                     }else{
-                        console.log(result,'\n\n2b\n\n');
+                        console.log(result,'\n\n2bs\n\n');
                         return callback(null,result);
                     }
                 });

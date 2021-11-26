@@ -78,12 +78,12 @@
                 url:'http://localhost:3001/getPost'+window.location.search
                 ,type:'GET'
                 ,success:function(resBdy,txtStat,xhr){
+                    console.log('--------response data (post)----------');
+                    console.log(resBdy,resBdy.length,resBdy[0]);
                     $('#title').val(resBdy[0].postsTitle);
                     $('#body').val(resBdy[0].postsContent);
                     $('#uID').val(resBdy[0].fk_userID);
                     $('#cID').val(resBdy[0].fk_channelID);
-                    console.log('--------response data (post)----------');
-                    console.log(resBdy,resBdy.length,resBdy[0]);
                     // uID=resBdy.fk_userID;
                     // cID=resBdy.fk_channelID;
                     // cont=resBdy.postsContent;
