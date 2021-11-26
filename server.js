@@ -30,5 +30,5 @@ var appB=require('./back-end/control/app');
 const portB =3001;
 const httpB=require('http');
 const serverB=appB.listen(portB,function(){
-    console.log('Web App Hosted at http://localhost:%s',portB);
+    console.log('backEnd App Hosted at localhost:%s',portB);
 });
