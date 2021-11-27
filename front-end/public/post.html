@@ -31,7 +31,7 @@
                 var data={title:title,bdy:body,uID:uID,cID:cID};
                 console.log(data);
                 $.ajax({
-                    url:'http://localhost:3001/addPost',
+                    url:'http://localhost:3000/be/addPost',
                     type:'POST',
                     data:data,
                     success:(resBdy,txtStat,xhr)=>{
@@ -75,7 +75,7 @@
         if(window.location.search){
             console.log(true);
             $.ajax({
-                url:'http://localhost:3001/getPost'+window.location.search
+                url:'http://localhost:3000/be/getPost'+window.location.search
                 ,type:'GET'
                 ,success:function(resBdy,txtStat,xhr){
                     console.log('--------response data (post)----------');
