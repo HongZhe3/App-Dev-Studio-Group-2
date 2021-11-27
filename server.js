@@ -1,5 +1,8 @@
 const express=require('express');
 const app=express();
+var appB=require('./back-end/control/app');
+
+app.use('/be',appB);
 
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
@@ -32,14 +35,13 @@ const serverA=app.listen(process.env.PORT||portA,function(){
 });
 
 //back end
-var appB=require('./back-end/control/app');
-const portB =3001;
-const httpB=require('http');
-const serverB=appB.listen(process.env.PORT||portB,function(){
-    if(process.env.PORT){
-        //
-        console.log('Web App Hosted at http://localhost:%s',process.env.PORT);
-    }else{
-        console.log('Web App Hosted at http://localhost:%s',portB);
-    }
-});
+// const portB =3001;
+// const httpB=require('http');
+// const serverB=appB.listen(process.env.PORT||portB,function(){
+//     if(process.env.PORT){
+//         //
+//         console.log('Web App Hosted at http://localhost:%s',process.env.PORT);
+//     }else{
+//         console.log('Web App Hosted at http://localhost:%s',portB);
+//     }
+// });
