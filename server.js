@@ -22,14 +22,24 @@ app.get('*',(req,res)=>{
 // var app=require('./public/app');
 const portA=3000;
 const httpA=require('http');
-const serverA=app.listen(portA || process.env.PORT,function(){
-    console.log('Web App Hosted at http://localhost:%s',portA);
+const serverA=app.listen(process.env.PORT||portA,function(){
+    if(process.env.PORT){
+        //
+        console.log('Web App Hosted at http://localhost:%s',process.env.PORT);
+    }else{
+        console.log('Web App Hosted at http://localhost:%s',portA);
+    }
 });
 
 //back end
 var appB=require('./back-end/control/app');
 const portB =3001;
 const httpB=require('http');
-const serverB=appB.listen(portB || process.env.PORT,function(){
-    console.log('Web App Hosted at http://localhost:%s',portB);
+const serverB=appB.listen(process.env.PORT||portB,function(){
+    if(process.env.PORT){
+        //
+        console.log('Web App Hosted at http://localhost:%s',process.env.PORT);
+    }else{
+        console.log('Web App Hosted at http://localhost:%s',portB);
+    }
 });
