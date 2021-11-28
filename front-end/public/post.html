@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(()=>{
+            var URLbe=window.location.toString().split('/')[2]
             $('#title').change(()=>{
                 console.log($('#title').val());
             });
@@ -30,8 +31,9 @@
                 var cID=$('#cID').val();
                 var data={title:title,bdy:body,uID:uID,cID:cID};
                 console.log(data);
+                window.location
                 $.ajax({
-                    url:'http://localhost:3000/be/addPost',
+                    url:`http://${window.location.toString().split('/')[2]}/be/addPost`,
                     type:'POST',
                     data:data,
                     success:(resBdy,txtStat,xhr)=>{
@@ -73,9 +75,9 @@
     <script>
         console.log(window.location.search);
         if(window.location.search){
-            console.log(true);
+            console.log(true,window.location.toString().split('/'));
             $.ajax({
-                url:'http://localhost:3000/be/getPost'+window.location.search
+                url:`http://${window.location.toString().split('/')[2]}be/getPost`+window.location.search
                 ,type:'GET'
                 ,success:function(resBdy,txtStat,xhr){
                     console.log('--------response data (post)----------');
