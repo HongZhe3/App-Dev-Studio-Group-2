@@ -1,0 +1,103 @@
+#sidenav {
+    width: 200px;
+    font-size: small;
+    box-shadow: 2px 0px 1px 1px #f4f5fa;
+}
+
+#sidenav__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sidenav__logo > img {
+    width: 60%;
+    margin: 10px 0;
+}
+
+#sidenav__search {
+    margin: 2em 0;
+}
+
+#sidenav__search > input {
+    padding: 8px 10px;
+    border: 1px solid #f4f5fa;
+    box-shadow: 0px 1px 0px 1px #f4f5fa;
+    border-radius: 0px 50px 50px 0px;
+    position: relative;
+    outline-width: 0;
+
+}
+
+#sidenav__search > i {
+    right: 30px;
+    position: relative;
+}
+
+#sidenav a {
+    text-decoration: none;
+    color: #808080;
+}
+
+#sidenav__link li {
+    padding: 10px 15px;
+}
+
+#sidenav hr {
+    margin: 2em 0;
+    border: 2px solid #f4f5fa;
+}
+#header {
+    font-size: medium;
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -300px;
+    margin-left: 220px;
+}
+
+#header a {
+    text-decoration: none;
+}
+
+#header__left ul {
+    display: flex;
+    align-items: center;
+}
+
+#header__left li a {
+    padding:  10px;
+    margin-right: 10px;
+    color: #808080;
+}
+
+#header__left a.active {
+    color: blue;
+    border-bottom: 2px solid blue;
+}
+
+#header__right {
+    display: flex;
+    align-items: right;
+    justify-content: right;
+}
+
+#header__right > * {
+    margin-top: -20px;
+    margin-right: 25px;
+}
+
+#header__right > img {
+    width: 5px;
+    border-radius: 50%;
+}
+
+#header__right > i {
+    color: #808080;
+}
+
+#header__right > .header__right > span {
+    margin-right: 10px;
+
+}
+
