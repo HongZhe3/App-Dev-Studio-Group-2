@@ -65,7 +65,8 @@ app.delete('/deletePost',(req,res)=>{//4
 });//4
 app.get('/getPost',(req,res)=>{//5
     console.log('\nget post',req.body,'\n\nparams',req.query);
-    var ID=req.query.id;
+    var ID=req.query.ID;
+    console.log(ID);
     post.getPost(ID,(err,result)=>{
         if(err){
             res.status(500).send({'error':err});

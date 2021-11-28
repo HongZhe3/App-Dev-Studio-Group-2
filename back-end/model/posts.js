@@ -148,6 +148,7 @@ var postDB={
         // return callback(null,result)
         var conn=db.getConnection();
         /* upload steps */
+        console.log(postID);
         conn.connect(function(err){
             if(err){
                 conn.end();
@@ -155,7 +156,10 @@ var postDB={
                 return callback(err,null);
             }else{
                 console.log('\n\nConnected!   getPost\n\n');
-                var sql='SELECT*FROM posts WHERE idposts=?';
+                var sql=`SELECT p.*,u.username,ch.subreddit
+                FROM posts AS p,user AS u,channel AS ch
+                WHERE p.fk_userID=u.iduser
+                AND p.fk_channelID=ch.idchannel AND idposts=?`;
                 conn.query(sql,[postID],(err,result)=>{
                     conn.end();
                     if(err){

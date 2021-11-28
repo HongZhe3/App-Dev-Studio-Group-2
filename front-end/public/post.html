@@ -76,9 +76,9 @@
     <script>
         console.log(window.location.search);
         if(window.location.search){
-            console.log(true,window.location.toString().split('/'));
+            console.log(true,window.location.toString().split('/'),`${window.location.toString().split('/')[2]}/be/getPost`+window.location.search);
             $.ajax({
-                url:`http://${window.location.toString().split('/')[2]}be/getPost`+window.location.search
+                url:`http://${window.location.toString().split('/')[2]}/be/getPost`+window.location.search
                 ,type:'GET'
                 ,success:function(resBdy,txtStat,xhr){
                     console.log('--------response data (post)----------');
