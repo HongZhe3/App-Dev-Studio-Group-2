@@ -70,4 +70,39 @@ app.get('/getPost',(req,res)=>{//5
         }
     });
 });//5 test edit
+app.post('/addUser',(req,res)=>{//6
+    console.log('\nadd user',req.body,'\n\nparams',req.query);
+    var username=req.body.username;
+    user.addUser(username,(err,result)=>{
+        if(err){
+            res.status(500).send({'error':err});
+        }else{
+            res.status(201).send(result);
+        }
+    });
+});//6
+app.post('/addChannel',(req,res)=>{//6
+    console.log('\nadd channel',req.body,'\n\nparams',req.query);
+    var name=req.body.name;
+    channel.addCh(name,(err,result)=>{
+        if(err){
+            res.status(500).send({'error':err});
+        }else{
+            res.status(201).send(result);
+        }
+    });
+});//6
+app.post('/votePost',(req,res)=>{//7
+    console.log('\nvote post',req.body,'\n\nparams',req.query);
+    var uID=req.body.uID;
+    var pID=req.body.pID;
+    var type=req.body.type;
+    vote.vote(uID,pID,type,(err,result)=>{
+        if(err){
+            res.status(500).send({'error':err});
+        }else{
+            res.status(201).send(result);
+        }
+    });
+});//7
 module.exports=app;
