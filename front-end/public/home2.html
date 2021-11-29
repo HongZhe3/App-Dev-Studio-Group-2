@@ -223,13 +223,15 @@ table {
                     }else{
                         console.log('no img');
                         var postHTML=`
-                <header>${resBdy[i].postsTitle}</header>
-                <body class='d-block row'>${resBdy[i].postsContent}</body><br>
-                <div class='row'>
-                    <div class='col-1'></div>
-                    <div class='col-1'>Comment</div>
-                    <div class='col-2'>add image</div>
-                </div>`;
+                        <div style="box-shadow: 0 4px 8px 0;margin:10px;">
+                            <header>${resBdy[i].postsTitle}</header>
+                            <p style='word-break: break-all;padding:10px;'>${resBdy[i].postsContent}</p>
+                            <div class='row'>
+                                <div class='col-1'></div>
+                                <div class='col-1'>Comment</div>
+                                <div class='col-2'>add image</div>
+                            </div>
+                        </div>`;
                     }
                     $('#postList').append(postHTML);
                 }
@@ -255,11 +257,11 @@ table {
                 <i class="fa fa-caret-down"></i>
             </div>
         </div>
-        <div id="postList" style='background-color:grey;'' >
-            <div style="border:solid">
+        <div id="postList">
+            <!-- <div style="box-shadow: 0 4px 8px 0;margin:10px;">
                 <header>title</header>
-                <p style='word-break: break-all;'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium quasi voluptatum sequi minima voluptas inventore illo, architecto ullam aliquid mollitia totam similique fugit doloremque molestiae nemo necessitatibus itaque. Aspernatur, corporis.</p>
-            </div>
+                <p style='word-break: break-all;padding:10px;'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium quasi voluptatum sequi minima voluptas inventore illo, architecto ullam aliquid mollitia totam similique fugit doloremque molestiae nemo necessitatibus itaque. Aspernatur, corporis.</p>
+            </div> -->
         </div>
     </div>
 </body>
