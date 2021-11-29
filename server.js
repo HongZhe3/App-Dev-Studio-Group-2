@@ -19,7 +19,7 @@ app.get('/post',(req,res)=>{
 });
 app.get('*',(req,res)=>{
     console.log('accessed post');
-    res.sendFile('./front-end/public/home.html',{root:__dirname});
+    res.sendFile('./front-end/public/home2.html',{root:__dirname});
 });
 
 // var app=require('./public/app');
