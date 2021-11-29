@@ -1,0 +1,68 @@
+[
+  RowDataPacket {
+    idposts: 1,
+    postsTitle: 'trial 1',
+    postsContent: 'test if endpoint can handle this post',
+    fk_userID: 1,
+    fk_channelID: 1,
+    imageLink: null,
+    created_on: 2021-11-23T08:17:36.000Z,
+    username: 'admin',
+    subreddit: 'trial channel'
+  },
+  RowDataPacket {
+    idposts: 2,
+    postsTitle: 'trial 2i',
+    postsContent: 'test to identify source of error',
+    fk_userID: 1,
+    fk_channelID: 1,
+    imageLink: null,
+    created_on: 2021-11-23T08:17:36.000Z,
+    username: 'admin',
+    subreddit: 'trial channel'
+  },
+  RowDataPacket {
+    idposts: 3,
+    postsTitle: 'trial 2ii',
+    postsContent: 'test if endpoint can handle this post \nedit: test edit',
+    fk_userID: 1,
+    fk_channelID: 1,
+    imageLink: null,
+    created_on: 2021-11-23T08:17:36.000Z,
+    username: 'admin',
+    subreddit: 'trial channel'
+  },
+  RowDataPacket {
+    idposts: 5,
+    postsTitle: 'trial 2',
+    postsContent: 'test to identify source of error',
+    fk_userID: 1,
+    fk_channelID: 1,
+    imageLink: null,
+    created_on: 2021-11-23T08:17:36.000Z,
+    username: 'admin',
+    subreddit: 'trial channel'
+  },
+  RowDataPacket {
+    idposts: 6,
+    postsTitle: 'trial 2',
+    postsContent: 'test to identify source of error',
+    fk_userID: 1,
+    fk_channelID: 1,
+    imageLink: null,
+    created_on: 2021-11-23T08:17:36.000Z,
+    username: 'admin',
+    subreddit: 'trial channel'
+  },
+  RowDataPacket {
+    idposts: 7,
+    postsTitle: 'trail 3',
+    postsContent: 'proof that this works',
+    fk_userID: 1,
+    fk_channelID: 1,
+    imageLink: null,
+    created_on: 2021-11-23T08:17:36.000Z,
+    username: 'admin',
+    subreddit: 'trial channel'
+  },
+]
