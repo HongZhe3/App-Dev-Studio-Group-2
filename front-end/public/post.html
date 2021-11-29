@@ -36,6 +36,28 @@
                 var data={title:title,bdy:body,uID:uID,cID:cID};
                 console.log(data);
                 window.location
+                if(window.location.search){
+                    $.ajax({
+                        url:`http://${window.location.toString().split('/')[2]}/be/addPost`,
+                        type:'PUT',
+                        data:data,
+                        success:(resBdy,txtStat,xhr)=>{
+                            console.log('data: '+data,'response: ',resBdy);
+                        },error:(xhr,txtStat,error)=>{
+                            console.log('error in operation','data\n',data,'xhr',xhr,'txtStat',txtStat,'error',error);
+                        }
+                    });return false;
+                }
+                $.ajax({
+                    url:`http://${window.location.toString().split('/')[2]}/be/addPost`,
+                    type:'POST',
+                    data:data,
+                    success:(resBdy,txtStat,xhr)=>{
+                        console.log('data: '+data,'response: ',resBdy);
+                    },error:(xhr,txtStat,error)=>{
+                        console.log('error in operation','data\n',data,'xhr',xhr,'txtStat',txtStat,'error',error);
+                    }
+                });return false;
                 $.ajax({
                     url:`http://${window.location.toString().split('/')[2]}/be/addPost`,
                     type:'POST',
@@ -49,7 +71,6 @@
             });
         });
     </script>
-    
   </head>
   <style>
       html, body, div, span, applet, object, iframe,
@@ -158,9 +179,6 @@ li a:hover:not(.active) {
 
 
   </style>
-
-
-
 <ul>
     <li><a href="home2.html">Bluedit</a></li>
     <li style="float:right">
