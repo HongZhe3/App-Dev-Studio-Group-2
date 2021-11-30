@@ -203,6 +203,7 @@ table {
     <script>
         console.log('fetch test',fetch('/be/getPosts'))
         console.log(window.location.toString().split('/')[2]);
+        console.log(window.location.toString(),window.location);
         $.ajax({
             url:`http://${window.location.toString().split('/')[2]}/be/getPosts`,
             type:'GET',
