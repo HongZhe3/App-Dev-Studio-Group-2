@@ -205,7 +205,7 @@ table {
         console.log(window.location.toString().split('/')[2]);
         console.log(window.location.toString(),window.location);
         $.ajax({
-            url:`http://${window.location.toString().split('/')[2]}/be/getPosts`,
+            url:`${window.location.toString()}be/getPosts`,
             type:'GET',
             success:(resBdy,txtStat,xhr)=>{
                 console.log('--------response data (post)----------');
