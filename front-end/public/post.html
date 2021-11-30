@@ -215,7 +215,7 @@ li a:hover:not(.active) {
         if(window.location.search.includes('?ID=')){
             console.log(true,window.location.toString().split('/'),`${window.location.toString()}/be/getPost`+window.location.search);
             $.ajax({
-                url:`${window.location.toString()}/be/getPost`+window.location.search
+                url:`${window.location.toString().split('/')[0]+'//'+window.location.toString().split('/')[2]}/be/getPost`+window.location.search
                 ,type:'GET'
                 ,success:function(resBdy,txtStat,xhr){
                     console.log('--------response data (post)----------');
