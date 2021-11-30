@@ -242,13 +242,13 @@ li a:hover:not(.active) {
                     // title=resBdy.postsTitle;
                 }
                 ,error:function(xhr,txtStat,error){
-                    console.log(false);
+                    console.log(false,'b',error);
                     $('#cID').val(1)
                     $('#uID').val(1)
                 }
             });
         }else{
-            console.log(false);
+            console.log(false,'a');
             $('#cID').val(1);
             $('#uID').val(1);
         }
