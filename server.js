@@ -16,7 +16,7 @@ app.use(function (req, res, next) {
 app.get('/post',(req,res)=>{
     console.log('accessed post');
     res.sendFile('./front-end/public/post.html',{root:__dirname});
-    res.send({port:process.env.PORT});
+    // res.send({port:process.env.PORT});
 });
 app.get('*',(req,res)=>{
     console.log('accessed post');
