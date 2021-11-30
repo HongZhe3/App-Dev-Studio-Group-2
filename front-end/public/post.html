@@ -38,7 +38,7 @@
                 window.location
                 if(window.location.search.includes('?ID=')){
                     $.ajax({
-                        url:`${window.location.toString()}/be/addPost`,
+                        url:`${window.location.toString().split('/')[0]+'//'+window.location.toString().split('/')[2]}/be/addPost`,
                         type:'PUT',
                         data:data,
                         success:(resBdy,txtStat,xhr)=>{
@@ -49,7 +49,7 @@
                     });return false;
                 }else{
                     $.ajax({
-                        url:`${window.location.toString()}/be/addPost`,
+                        url:`${window.location.toString().split('/')[0]+'//'+window.location.toString().split('/')[2]}/be/addPost`,
                         type:'POST',
                         data:data,
                         success:(resBdy,txtStat,xhr)=>{
