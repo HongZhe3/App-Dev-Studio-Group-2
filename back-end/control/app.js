@@ -39,7 +39,7 @@ app.get('/getPosts',(req,res)=>{//2
 });//2
 app.put('/editPost',(req,res)=>{//3
     console.log('\nedit post',req.body,'\n\nparams',req.query);
-    var ID=req.query.ID;
+    var ID=parseInt(req.query.ID);
     var title=req.body.title;
     var bdy=req.body.bdy;
     post.editPost(ID,title,bdy,(err,result)=>{
@@ -53,7 +53,7 @@ app.put('/editPost',(req,res)=>{//3
 });//3
 app.delete('/deletePost',(req,res)=>{//4
     console.log('\ndelete post',req.body,'\n\nparams',req.query);
-    var ID=req.query.ID;
+    var ID=parseInt(req.query.ID);
     post.deletePost(ID,(err,result)=>{
         if(err){
             res.status(500).send({'error':err});
@@ -65,7 +65,7 @@ app.delete('/deletePost',(req,res)=>{//4
 });//4
 app.get('/getPost',(req,res)=>{//5
     console.log('\nget post',req.body,'\n\nparams',req.query);
-    var ID=req.query.ID;
+    var ID=parseInt(req.query.ID);
     console.log(ID);
     post.getPost(ID,(err,result)=>{
         if(err){
