@@ -29,9 +29,9 @@ const httpA=require('http');
 const serverA=app.listen(process.env.PORT||portA,function(){
     if(process.env.PORT){
         //
-        console.log('Web App Hosted at http://localhost:%s',process.env.PORT);
+        console.log('Web App Hosted at http://%s',process.env.PORT);
     }else{
-        console.log('Web App Hosted at http://localhost:%s',portA);
+        console.log('Web App Hosted at http://%s',portA);
     }
 });
 
