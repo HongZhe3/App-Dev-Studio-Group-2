@@ -36,9 +36,9 @@
                 var data={title:title,bdy:body,uID:uID,cID:cID};
                 console.log(data);
                 window.location
-                if(window.location.search){
+                if(window.location.search.includes('?ID=')){
                     $.ajax({
-                        url:`http://${window.location.toString().split('/')[2]}/be/addPost`,
+                        url:`${window.location.toString()}/be/addPost`,
                         type:'PUT',
                         data:data,
                         success:(resBdy,txtStat,xhr)=>{
@@ -47,27 +47,18 @@
                             console.log('error in operation','data\n',data,'xhr',xhr,'txtStat',txtStat,'error',error);
                         }
                     });return false;
+                }else{
+                    $.ajax({
+                        url:`${window.location.toString()}/be/addPost`,
+                        type:'POST',
+                        data:data,
+                        success:(resBdy,txtStat,xhr)=>{
+                            console.log('data: '+data,'response: ',resBdy);
+                        },error:(xhr,txtStat,error)=>{
+                            console.log('error in operation','data\n',data,'xhr',xhr,'txtStat',txtStat,'error',error);
+                        }
+                    });return false;
                 }
-                $.ajax({
-                    url:`http://${window.location.toString().split('/')[2]}/be/addPost`,
-                    type:'POST',
-                    data:data,
-                    success:(resBdy,txtStat,xhr)=>{
-                        console.log('data: '+data,'response: ',resBdy);
-                    },error:(xhr,txtStat,error)=>{
-                        console.log('error in operation','data\n',data,'xhr',xhr,'txtStat',txtStat,'error',error);
-                    }
-                });return false;
-                $.ajax({
-                    url:`http://${window.location.toString().split('/')[2]}/be/addPost`,
-                    type:'POST',
-                    data:data,
-                    success:(resBdy,txtStat,xhr)=>{
-                        console.log('data: '+data,'response: ',resBdy);
-                    },error:(xhr,txtStat,error)=>{
-                        console.log('error in operation','data\n',data,'xhr',xhr,'txtStat',txtStat,'error',error);
-                    }
-                });return false;
             });
         });
     </script>
@@ -220,10 +211,10 @@ li a:hover:not(.active) {
     </div>
     <script>
         console.log(window.location.search);
-        if(window.location.search){
-            console.log(true,window.location.toString().split('/'),`${window.location.toString().split('/')[2]}/be/getPost`+window.location.search);
+        if(window.location.search.includes('?ID=')){
+            console.log(true,window.location.toString().split('/'),`${window.location.toString()}/be/getPost`+window.location.search);
             $.ajax({
-                url:`http://${window.location.toString().split('/')[2]}/be/getPost`+window.location.search
+                url:`${window.location.toString()}/be/getPost`+window.location.search
                 ,type:'GET'
                 ,success:function(resBdy,txtStat,xhr){
                     console.log('--------response data (post)----------');
