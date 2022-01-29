@@ -234,7 +234,6 @@ vote{
     </login>
     <script>
         if(window.location.search.includes('&')){//if login page redirects to adding the login details in url, use this login method
-                console.log(data);
                 $.ajax({
                     url:window.location.origin+'/be/login2'+window.location.search
                     ,type:'POST'
