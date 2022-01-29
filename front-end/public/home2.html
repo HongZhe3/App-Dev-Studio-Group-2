@@ -294,7 +294,7 @@ vote{
             <i class="fas fa-moon"></i>
             <img src="" />
             <div id="header__user">
-                <span>Login</span>
+                <span id="loginName">Login</span>
                 <i class="fa fa-caret-down"></i>
             </div>
         </div>
@@ -319,5 +319,11 @@ vote{
             </div>
         </div>
     </div>
+    <script>
+        if(localStorage.getItem('userID')){
+            console.log(document.getElementById('loginName').textContent);
+            document.getElementById('loginName').textContent=localStorage.getItem('username');
+        }else{document.getElementById('loginName').textContent='login';}
+    </script>
 </body>
 </html>

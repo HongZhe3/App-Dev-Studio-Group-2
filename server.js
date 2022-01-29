@@ -19,23 +19,24 @@ app.get('/post*',(req,res)=>{
     // res.send({port:process.env.PORT});
 });
 app.get('/comment*',(req,res)=>{
-    console.log('accessed post');
+    console.log('accessed comments');
     res.sendFile('./front-end/public/post2.html',{root:__dirname});
     // res.send({port:process.env.PORT});
 });
 app.get('/',(req,res)=>{
-    console.log('accessed post');
+    console.log('accessed home');
     res.sendFile('./front-end/public/home2.html',{root:__dirname});
 });
 app.get('/login',(req,res)=>{
-    console.log('accessed post');
+    console.log('accessed login');
     res.sendFile('./front-end/public/login.html',{root:__dirname});
 });
 app.get('/u*',(req,res)=>{
-    console.log('accessed post');
+    console.log('accessed profile');
     res.sendFile('./front-end/public/profile.html',{root:__dirname});
 });
 app.use((req,res,next)=>{
+    console.log('accessed no profile');
     res.status(404).sendFile('./front-end/public/404.html',{root:__dirname});
 })
 

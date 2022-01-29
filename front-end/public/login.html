@@ -233,7 +233,35 @@ vote{
         <div id="res"></div>
     </login>
     <script>
-
+        if(window.location.search.includes('&')){//if login page redirects to adding the login details in url, use this login method
+                console.log(data);
+                $.ajax({
+                    url:window.location.origin+'/be/login2'+window.location.search
+                    ,type:'POST'
+                    ,success:(resBdy,txtStat,xhr)=>{
+                        console.log(resBdy);
+                        document.getElementById('res').innerHTML=`
+                        <div class="alert-success">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            <strong>Success!</strong> Logged In
+                        </div>`;
+                        localStorage.setItem('userID',resBdy[0].iduser);
+                        localStorage.setItem('username',resBdy[0].username);
+                        localStorage.setItem('created',resBdy[0].created_on);
+                        // return false;
+                        window.location.replace(window.location.origin);//redirect to profile page
+                    }
+                    ,error:(xhr,txtStat,error)=>{
+                        console.log(error);
+                        document.getElementById('res').innerHTML=`
+                        <div class="alert-warning">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                            <strong>Failed!</strong> Not Logged In
+                        </div>`;
+                        return false;
+                    }
+                });
+        }
     </script>
 </body>
 </html>

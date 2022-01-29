@@ -183,7 +183,7 @@ li a:hover:not(.active) {
     <li style="float:right">
         <img src="" />
         <div id="header__user">
-            <span>David</span>
+            <span id="loginName">David</span>
             <i class="fa fa-caret-down"></i>
         </div>
     </li>
@@ -220,6 +220,10 @@ li a:hover:not(.active) {
     </div>
     <script>
         console.log(window.location.search);
+        if(localStorage.getItem('userID')){
+            console.log(document.getElementById('loginName').textContent);
+            document.getElementById('loginName').textContent=localStorage.getItem('username');
+        }else{document.getElementById('loginName').textContent='login';}
         if(window.location.search.includes('?ID=')){
             console.log(true,window.location.toString().split('/'),`${window.location.toString()}/be/getPost`+window.location.search);
             $.ajax({

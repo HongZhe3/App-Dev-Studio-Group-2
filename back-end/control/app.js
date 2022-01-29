@@ -215,4 +215,16 @@ app.post('/login',(req,res) => {//6
         }
     });
 });
+app.post('/login2',(req,res) => {//6
+    console.log('\nlogin', req.body, '\n\nparams', req.query);
+    var username = req.query.username;
+    var pswd = req.query.password;
+    user.login(username, pswd, (err, result) => {
+        if (err) {
+            res.status(500).send({ 'error': err });
+        } else {
+            res.status(201).send(result);
+        }
+    });
+});
 module.exports=app;
