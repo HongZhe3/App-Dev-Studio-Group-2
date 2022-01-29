@@ -226,12 +226,12 @@ vote{
                 console.log('--------response data (post)----------');
                 console.log(/* resBdy, */ resBdy.length);
                 for (var i= 0; i < resBdy.length; i++) {
-                    $.ajax({
-                        url:`${window.location.toString()}be/voteCount`
-                        ,type:'GET',
-                        data:{},
-                        success:(voteRes,txtStat,xhr)=>{}
-                    });
+                    // $.ajax({
+                    //     url:`${window.location.toString()}be/voteCount`
+                    //     ,type:'GET',
+                    //     data:{},
+                    //     success:(voteRes,txtStat,xhr)=>{}
+                    // });
                     if(resBdy[i].image){//if there is an image link
                         console.log('yes img');
                         var     postHTML=`
