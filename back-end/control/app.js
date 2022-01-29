@@ -1,11 +1,14 @@
 const express= require('express');
 const post=require('../model/posts');
 const user=require('../model/user');
-const vote=require('../model/vote');
-const channel=require('../model/channel');
+const Vote=require('../model/vote');
+const Channel=require('../model/channel');
 const comment=require('../model/comment');
+// const multer=require('multer');
 var app=express();
 const cors = require('cors');
+const { addCom } = require('../model/comment');
+const e = require('express');
 app.options('*',cors());
 app.use(cors());
 app.use(express.json());
@@ -89,7 +92,7 @@ app.post('/addUser',(req,res)=>{//6
 app.post('/addChannel',(req,res)=>{//6
     console.log('\nadd channel',req.body,'\n\nparams',req.query);
     var name=req.body.name;
-    channel.addCh(name,(err,result)=>{
+    Channel.addCh(name,(err,result)=>{
         if(err){
             res.status(500).send({'error':err});
         }else{
@@ -97,15 +100,117 @@ app.post('/addChannel',(req,res)=>{//6
         }
     });
 });//6
-app.post('/votePost',(req,res)=>{
+app.post('/votePost',(req,res)=>{//a 1
+    // add a vote (up or down depending on system)
     console.log('\nvote post',req.body,'\n\nparams',req.query);
     var uID=req.body.uID;
     var pID=req.body.pID;
     var type=req.body.type;
-    vote.vote(uID,pID,type,(err,result)=>{
+    Vote.vote(uID,pID,type,(err,result)=>{
         if(err){
             res.status(500).send({'error':err});
         }else{
+            res.status(201).send(result);
+        }
+    });
+});//a 1
+app.put('/changeVotePost',(req,res)=>{//a 3
+    // change a vote (up or down depending on system)
+    console.log('\nvote edit',req.body,'\n\nparams',req.query);
+    var uID=req.body.uID;
+    var pID=req.body.pID;
+    var type=req.body.type;
+    Vote.voteEdit(pID,uID,type,(err,result)=>{
+        if(err){
+            res.status(500).send({'error':err});
+        }else{
+            res.status(200).send(result);
+        }
+    });
+});//a 3
+app.delete('/deleteVotePost',(req,res)=>{//a 4
+    // delete a vote (up or down depending on system)
+    console.log('\nvote delete',req.body,'\n\nparams',req.query);
+    var uID=req.body.uID;
+    var pID=req.body.pID;
+    var type=req.body.type;
+});//a 4
+app.post('/addCom',(req,res)=>{
+    // add a comment (considering adding images)
+    console.log('\ncomment add',req.body,'\n\nparams',req.query);
+    var uID=req.body.uID;
+    var pID=req.body.pID;
+    var cont=req.body.comment;
+    comment.addCom(cont,uID,pID,(err,result)=>{
+        //conn.end();
+        if(err){
+            console.log(err,'\n\n2bf\n\n');
+            return callback(err,null);
+        }else{
+            console.log(result,'\n\n2bs\n\n');
+            return callback(null,result);
+        }
+    });
+});
+app.get('/voteCount',(req,res)=>{//a 2
+    var pID=req.body.pID;
+    var uID=req.body.uID;
+    //count all the upvotes in post
+    var resArray=[]
+    Vote.upVoteCount(pID,(err,result1)=>{
+        if(err){
+            res.status(500).send({'error':err});
+        }else{
+            // res.status(200).send(result);
+            resArray.push(result1[0]);
+            console.log('\nDATA\n',resArray,'\n',resArray.length,'\n');
+        }
+        if (resArray.length==3) {
+            console.log('\nDATAsuccess\n',resArray,'\n',resArray.length,'\n');
+            res.status(200).send(resArray);
+        }else{
+            console.log('\nDATAfail\n',resArray,'\n',resArray.length,'\n');
+            }
+    });
+    Vote.downVoteCount(pID,(err,result2)=>{
+        if(err){
+            res.status(500).send({'error':err});
+        }else{
+            // res.status(200).send(result);
+            resArray.push(result2[0]);
+            console.log('\nDATA\n',resArray,'\n',resArray.length,'\n');
+        }
+        if (resArray.length==3) {
+            console.log('\nDATAsuccess\n',resArray,'\n',resArray.length,'\n');
+            res.status(200).send(resArray);
+        }else{
+            console.log('\nDATAfail\n',resArray,'\n',resArray.length,'\n');
+            }
+    });
+    Vote.getVote(pID,uID,(err,result3)=>{
+        if(err){
+            res.status(500).send({'error':err});
+        }else{
+            // res.status(200).send(result);
+            resArray.push(result3[0]);
+            console.log('\nDATA\n',resArray,'\n',resArray.length,'\n');
+        }
+        if (resArray.length==3) {
+            console.log('\nDATAsuccess\n',resArray,'\n',resArray.length,'\n');
+            res.status(200).send(resArray);
+        }else{
+            console.log('\nDATAfail\n',resArray,'\n',resArray.length,'\n');
+            }
+    });
+});//a 2
+app.post('/login',(req,res) => {//6
+    console.log('\nlogin', req.body, '\n\nparams', req.query);
+    var username = req.body.username;
+    var pswd = req.body.pswd;
+    user.login(username, pswd, (err, result) => {
+        if (err) {
+            res.status(500).send({ 'error': err });
+        } else {
             res.status(201).send(result);
         }
     });

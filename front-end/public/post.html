@@ -43,10 +43,12 @@
                         data:data,
                         success:(resBdy,txtStat,xhr)=>{
                             console.log('data: '+data,'response: ',resBdy);
+                            window.location.href=window.location.origin
                         },error:(xhr,txtStat,error)=>{
                             console.log('error in operation','data\n',data,'xhr',xhr,'txtStat',txtStat,'error',error);
+                            return false;
                         }
-                    });return false;
+                    });
                 }else{
                     $.ajax({
                         url:`${window.location.toString().split('/')[0]+'//'+window.location.toString().split('/')[2]}/be/addPost`,
@@ -54,11 +56,16 @@
                         data:data,
                         success:(resBdy,txtStat,xhr)=>{
                             console.log('data: '+data,'response: ',resBdy);
+                            window.location.href=window.location.origin
                         },error:(xhr,txtStat,error)=>{
                             console.log('error in operation','data\n',data,'xhr',xhr,'txtStat',txtStat,'error',error);
+                            return false;
                         }
-                    });return false;
+                    });
                 }
+            });
+            $('.return').click(()=>{
+                window.location.replace(window.location.origin);//redirect to profile page
             });
         });
     </script>
@@ -171,7 +178,8 @@ li a:hover:not(.active) {
 
   </style>
 <ul>
-    <li><a href="home2.html">Bluedit</a></li>
+    <!-- <li><a href="home2.html" class="return">Bluedit</a></li>  -->
+    <button class="return">home</button>
     <li style="float:right">
         <img src="" />
         <div id="header__user">
@@ -197,7 +205,7 @@ li a:hover:not(.active) {
                 </div><br>
                 <label for="uID">user ID</label>
                 <input type='number'id='uID'name='uID'></input>
-                <div id="uName"></div> 
+                <div id="uNawhme"></div> 
                 <label for="cID">channel ID</label>
                 <input type='number'id='cID'name='cID'></input>
                 <div id="cName"></div> 
@@ -235,14 +243,18 @@ li a:hover:not(.active) {
                 }
                 ,error:function(xhr,txtStat,error){
                     console.log(false,'b',error);
-                    $('#cID').val(1)
-                    $('#uID').val(1)
+                    if (localStorage.getItem('userID')){
+                        $('#uID').val(localStorage.getItem('userID'));
+                    }else{$('#uID').val(1);}
+                    $('#cID').val(1);
                 }
             });
         }else{
             console.log(false,'a');
             $('#cID').val(1);
-            $('#uID').val(1);
+            if(localStorage.getItem('userID')){
+                $('#uID').val(localStorage.getItem('userID'));
+            }else{$('#uID').val(1);}
         }
     </script>
 </body>

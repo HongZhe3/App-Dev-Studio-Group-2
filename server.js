@@ -18,10 +18,26 @@ app.get('/post',(req,res)=>{
     res.sendFile('./front-end/public/post.html',{root:__dirname});
     // res.send({port:process.env.PORT});
 });
-app.get('*',(req,res)=>{
+app.get('/comment*',(req,res)=>{
+    console.log('accessed post');
+    res.sendFile('./front-end/public/post2.html',{root:__dirname});
+    // res.send({port:process.env.PORT});
+});
+app.get('',(req,res)=>{
     console.log('accessed post');
     res.sendFile('./front-end/public/home2.html',{root:__dirname});
 });
+app.get('/login',(req,res)=>{
+    console.log('accessed post');
+    res.sendFile('./front-end/public/login.html',{root:__dirname});
+});
+app.get('/u*',(req,res)=>{
+    console.log('accessed post');
+    res.sendFile('./front-end/public/profile.html',{root:__dirname});
+});
+app.use((req,res,next)=>{
+    res.status(404).sendFile('./front-end/public/404.html',{root:__dirname});
+})
 
 // var app=require('./public/app');
 const portA=3000;
@@ -31,7 +47,7 @@ const serverA=app.listen(process.env.PORT||portA,function(){
         //
         console.log('Web App Hosted at http://%s',process.env.PORT);
     }else{
-        console.log('Web App Hosted at http://%s',portA);
+        console.log('Web App Hosted at localhost:%s',portA);
     }
 });
 

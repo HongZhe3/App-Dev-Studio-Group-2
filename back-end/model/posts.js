@@ -173,5 +173,53 @@ var postDB={
             }
         });
     }//5 complete
+    ,getPostFromUser:(userID,callback)=>{
+        var conn=db.getConnection();
+        /* upload steps */
+        console.log(postID);
+        conn.connect((err)=>{
+            if(err){
+                conn.end();
+                console.log(err,'\n\n2a\n\n');
+                return callback(err,null);
+            }else{
+                console.log(`\n\nConnected!   getUser'sPost\n\n`);
+                var sql=``;
+                conn.query(sql,[userID],(err,result)=>{conn.end();
+                    if(err){
+                        console.log(err,'\n\n2bf\n\n');
+                        return callback(err,null);
+                    }else{
+                        console.log(result,'\n\n2bs\n\n');
+                        return callback(null,result);
+                    }
+                });
+            }
+        });
+    }
+    ,getPostFromChannel:(cID,callback)=>{
+        var conn=db.getConnection();
+        /* upload steps */
+        console.log(postID);
+        conn.connect((err)=>{
+            if(err){
+                conn.end();
+                console.log(err,'\n\n2a\n\n');
+                return callback(err,null);
+            }else{
+                console.log(`\n\nConnected!   getUser'sPost\n\n`);
+                var sql=``;
+                conn.query(sql,[cID],(err,result)=>{conn.end();
+                    if(err){
+                        console.log(err,'\n\n2bf\n\n');
+                        return callback(err,null);
+                    }else{
+                        console.log(result,'\n\n2bs\n\n');
+                        return callback(null,result);
+                    }
+                });
+            }
+        });
+    }
 };
 module.exports = postDB;
