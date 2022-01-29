@@ -13,7 +13,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/post/*',(req,res)=>{
+app.get('/post*',(req,res)=>{
     console.log('accessed post');
     res.sendFile('./front-end/public/post.html',{root:__dirname});
     // res.send({port:process.env.PORT});
