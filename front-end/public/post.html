@@ -31,7 +31,8 @@
                 //headers:{'authorization':localStorage.getItem('token')}
                 var title=$('#title').val();
                 var body=$('#body').val();
-                var uID=$('#uID').val();
+                // var uID=$('#uID').val();
+                var uID=localStorage.getItem('userID');
                 var cID=$('#cID').val();
                 var data={title:title,bdy:body,uID:uID,cID:cID};
                 console.log(data);
@@ -209,8 +210,8 @@ li a:hover:not(.active) {
                 <label for="cID">channel ID</label>
                 <input type='number'id='cID'name='cID'></input>
                 <div id="cName"></div> 
-                <button id='addPost'>post</button>
             </form>
+            <button id='addPost'>post</button>
         </div>
         <!-- <div class="container d-none d-md-flex col-md-4 col-lg-3 justify-content-center">
             <div class="bg-success prof-cd-size">
@@ -259,6 +260,9 @@ li a:hover:not(.active) {
             if(localStorage.getItem('userID')){
                 $('#uID').val(localStorage.getItem('userID'));
             }else{$('#uID').val(1);}
+        }
+        if(window.location.search.includes('?title=')&&!window.location.search.includes('ID=')){
+            
         }
     </script>
 </body>

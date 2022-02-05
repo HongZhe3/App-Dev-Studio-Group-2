@@ -1,4 +1,4 @@
-  const db=require('./databaseConfig');
+const db=require('./databaseConfig');
 var voteDB={
     vote:function(uID,pID,type,callback){
         var conn=db.getConnection();
