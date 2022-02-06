@@ -116,8 +116,6 @@ table {
 	border-spacing: 0;
 }
 
-
-
 #sidenav__logo > img {
     width: 10%;
     margin: 0px;
@@ -175,7 +173,23 @@ li a:hover:not(.active) {
   background-color: #111;
 }
 
+.image-preview{
+    width: 300px;
+    min-height: 100px;
+    border: 2px solid #dddddd;
+    margin-top: 15px;
+    /* default text */
+    display: flex;
+    align-items: center;/* centres it vertically */
+    justify-content: center;/* centres it horizontally */
+    font-weight: bold;
+    color: #cccccc;
+}
 
+.image-preview__image{
+    display: none;
+    width: 100%;
+}
 
   </style>
 <ul>
@@ -211,6 +225,11 @@ li a:hover:not(.active) {
                 <input type='number'id='cID'name='cID'></input>
                 <div id="cName"></div> 
             </form>
+            <input type="file" name="inpFile" id="inpFile">
+            <div class="image-preview"id="imagePreview">
+                <img src=""alt='Image Preview'class='image-preview__image'>
+                <span class="image-preview__default-text">Image Preview</span>
+            </div>
             <button id='addPost'>post</button>
         </div>
         <!-- <div class="container d-none d-md-flex col-md-4 col-lg-3 justify-content-center">
@@ -261,9 +280,26 @@ li a:hover:not(.active) {
                 $('#uID').val(localStorage.getItem('userID'));
             }else{$('#uID').val(1);}
         }
-        if(window.location.search.includes('?title=')&&!window.location.search.includes('ID=')){
-            
-        }
+        const inpFile=document.getElementById('inpFile');
+        const previewContainer=document.getElementById('imagePreview');
+        const previewImage=previewContainer.querySelector('.image-preview__image');
+        const previewDefaultText=previewContainer.querySelector('.image-preview__default-text');
+        inpFile.addEventListener('change',function(){
+            const file=this.files[0];
+            if(file){
+                const reader=new FileReader();
+                previewDefaultText.style.display='none';
+                previewImage.style.display='block';
+                reader.addEventListener('load',function(){
+                    previewImage.setAttribute('src',this.result);
+                });
+                reader.readAsDataURL(file);
+            }else{
+                previewDefaultText.style.display=null;
+                previewImage.style.display=null;
+                previewImage.setAttribute('src','');
+            }
+        })
     </script>
 </body>
 </html>
