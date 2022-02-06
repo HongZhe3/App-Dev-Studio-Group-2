@@ -3,6 +3,11 @@ export default function Upload(){
     const[selectedFile,setSelectedFile]=useState('');
     const handleFileInputChange=(e)=>{
         const file=e.target.files[0];
+        previewFile(file);
+    }
+    const previewFile=(file)=>{
+        const reader=new FileReader();
+        reader.readAsDataURL(file);
     }
     return(
         <div>
@@ -11,7 +16,7 @@ export default function Upload(){
                 <input 
                 type='file'
                 name='image'
-                onChange={}
+                onChange={handleFileInputChange}
                 value={fileInputState}
                 className='form-input'/>
                 <button className='btn'type='button'>Submit</button>
